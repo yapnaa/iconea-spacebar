@@ -29,6 +29,9 @@ services:
 
     #App\Controller\BlogController: ['@App\Service\Greeting']
     #App\Service\Greeting: ['@monolog.logger']
+    App\Service\MarkdownHelper:
+        arguments:
+            $logger: '@monolog.logger.markdown'
 
     # app.greeting:
     #     public: true
