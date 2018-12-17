@@ -1,8 +1,8 @@
 <?php
 namespace App\Controller;
 use App\Service\MarkdownHelper;
+use App\Service\SlackClient;
 
-use Nexy\Slack\Client;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,11 +15,13 @@ class ArticleController extends AbstractController
      * Currently unused: just showing a controller with a constructor!
      */
     private $isDebug;
+    private $slack;
 
-	public function __construct(bool $isDebug, Client $slack)
+	public function __construct(bool $isDebug, SlackClient $slack)
     {
         #dd($isDebug);
         $this->isDebug = $isDebug;
+        $this->slack = $slack;
     }
 	/**
 	* @Route("/", name="app_homepage")
@@ -32,14 +34,10 @@ class ArticleController extends AbstractController
 	/**
 	* @Route("/news/{slug}", name="article_show")
 	*/
-	public function show($slug, MarkdownHelper $markdownHelper, Client $slack)
+	public function show($slug, MarkdownHelper $markdownHelper, SlackClient $slack)
 	{
 		if($slug === "khaaaaaan") {
-			$message = $slack->createMessage()
-                ->from('Khan')
-                ->withIcon(':ghost:')
-                ->setText('Ah, Kirk, my old friend...');
-            $slack->sendMessage($message);
+            $slack->sendMessage('Kahn', 'Ah, Kirk, my old friend...');
 		}
 		#dd($slug, $this);
 		$comments = [
