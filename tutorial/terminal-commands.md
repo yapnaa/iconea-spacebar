@@ -12,3 +12,5 @@
 + php bin/console config:dump framework
 + php bin/console debug:config framework
 + php bin/console debug:container --parameters
+
++ php bin/console about
