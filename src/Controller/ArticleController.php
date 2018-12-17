@@ -30,6 +30,13 @@ class ArticleController extends AbstractController
 	{
 		return $this->render('article/homepage.html.twig');
 	}
+	/**
+	* @Route("/news", name="app_newshome")
+	*/
+	public function newspage()
+	{
+		return $this->render('article/homepage.html.twig');
+	}
 
 	/**
 	* @Route("/news/{slug}", name="article_show")

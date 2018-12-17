@@ -34,7 +34,7 @@
         "symfony/css-selector": "^3.3|^4.0",
         "symfony/debug-bundle": "^3.3|^4.0",
         "symfony/dotenv": "4.1.*",
-        "symfony/maker-bundle": "^1.0",
+        "symfony/maker-bundle": "^1.10",
         "symfony/monolog-bundle": "^3.0",
         "symfony/panther": "*",
         "symfony/phpunit-bridge": "*",
