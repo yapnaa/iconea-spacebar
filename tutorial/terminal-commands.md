@@ -21,3 +21,5 @@
 + php bin/console make:migration
 + php bin/console doctrine:migrations:migrate
 + php bin/console doctrine:migrations:status
+
++ php bin/console doctrine:query:sql "SELECT * FROM article"
