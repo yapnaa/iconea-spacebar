@@ -23,3 +23,4 @@
 + php bin/console doctrine:migrations:status
 
 + php bin/console doctrine:query:sql "SELECT * FROM article"
++ php bin/console make:twig-extension
