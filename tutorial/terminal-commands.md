@@ -16,3 +16,5 @@
 + php bin/console about
 
 ##### Commands are services too. So if you needed your SlackClient service, you would just add a __construct() method and autowire it! When you do this, you need to call parent::__construct(). Commands are a rare case where there is a parent constructor!
+
++ php bin/console make:entity
