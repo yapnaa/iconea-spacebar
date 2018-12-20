@@ -34,3 +34,7 @@ But then, in just a couple of places in Symfony, the main ones being Twig extens
 + php bin/console doctrine:fixtures:load
 
 #### The Criteria system is better than manually filtering, but, remember! Do not prematurely optimize. Get your app to production, then check for issues. But if you have a big collection and need to return only a small number of results, you should use Criteria immediately.
+
+ As I always like to say, deploy first, then see where you have problems. Using a tool like Blackfire.io makes it very easy to find real issues.
+
+ 
