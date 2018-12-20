@@ -47,17 +47,8 @@ EOF
                 ->setUpdatedAt(new \DateTime())
             ;
 
-            $comment1 = new Comment();
-            $comment1->setAuthorName('Sas Banerjee');
-            $comment1->setContent('I ate a normal rock once. It did NOT taste like bacon!');
-            $comment1->setArticle($article);
-            $manager->persist($comment1);
-            
-            $comment1 = new Comment();
-            $comment1->setAuthorName('Sas Banerjee');
-            $comment1->setContent('I ate a normal rock once. It did NOT taste like bacon!');
-            $comment1->setArticle($article);
-            $manager->persist($comment1);
+            $article->addComment($comment1);
+            $article->addComment($comment2);
         });
 
         $manager->flush();
