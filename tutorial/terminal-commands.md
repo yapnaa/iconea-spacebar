@@ -24,3 +24,7 @@
 
 + php bin/console doctrine:query:sql "SELECT * FROM article"
 + php bin/console make:twig-extension
+
+#### Here's the super-duper-important takeaway: I want you to use normal dependency injection everywhere - just pass each service you need through the constructor, without all this fancy service-subscriber stuff.
+
+But then, in just a couple of places in Symfony, the main ones being Twig extensions, event subscribers and security voters - a few topics we'll talk about in the future - you should consider using a service subscriber instead to avoid a performance hit.
