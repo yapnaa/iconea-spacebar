@@ -47,8 +47,8 @@ EOF
                 ->setUpdatedAt(new \DateTime())
             ;
 
-            $article->addComment($comment1);
-            $article->addComment($comment2);
+            #$article->addComment($comment1);
+            #$article->addComment($comment2);
         });
 
         $manager->flush();
