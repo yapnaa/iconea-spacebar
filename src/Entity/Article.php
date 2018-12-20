@@ -203,5 +203,12 @@ class Article
 
         return $this;
     }
-
+    
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getNonDeletedComments(): Collection
+    {
+        return $this->comments;
+    }
 }

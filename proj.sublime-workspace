@@ -180,6 +180,7 @@
 	],
 	"file_history":
 	[
+		"/D/iconea-spacebar/config/bundles.php",
 		"/D/iconea-two/src/Kernel.php",
 		"/D/iconea-two/vendor/symfony/http-kernel/Kernel.php",
 		"/C/Users/Admin/Downloads/iconea.sql",
@@ -306,8 +307,7 @@
 		"/D/iconea-two/templates/swig/index.html.twig",
 		"/D/iconea-two/vendor/doctrine/collections/lib/Doctrine/Common/Collections/ArrayCollection.php",
 		"/C/Users/Admin/Downloads/user-fixtures.php/user-fixtures.php",
-		"/C/Users/Admin/AppData/Local/Temp/Temp1_base-navbar.html.twig.zip/base-navbar.html.twig",
-		"/D/iconea-two/vendor/symfony/http-foundation/Request.php"
+		"/C/Users/Admin/AppData/Local/Temp/Temp1_base-navbar.html.twig.zip/base-navbar.html.twig"
 	],
 	"find":
 	{
@@ -342,16 +342,22 @@
 	"folders":
 	[
 		{
-			"path": "D:\\iconea-one\\src"
+			"path": "D:\\iconea-spacebar\\config"
 		},
 		{
-			"path": "D:\\iconea-one\\templates"
+			"path": "D:\\iconea-spacebar\\src"
 		},
 		{
-			"path": "D:\\iconea-one\\public"
+			"path": "D:\\iconea-spacebar\\templates"
 		},
 		{
-			"path": "D:\\iconea-one\\vendor"
+			"path": "D:\\iconea-spacebar\\translations"
+		},
+		{
+			"path": "D:\\iconea-spacebar\\tutorial"
+		},
+		{
+			"path": "D:\\iconea-spacebar\\vendor"
 		}
 	],
 	"groups":

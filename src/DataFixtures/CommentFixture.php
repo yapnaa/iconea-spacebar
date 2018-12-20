@@ -16,8 +16,9 @@ class CommentFixture extends BaseFixture implements DependentFixtureInterface
         		$this->faker->boolean ? $this->faker->paragraph : $this->faker->sentences(2, true)
             );
             $comment->setAuthorName($this->faker->name);
-            $comment->setCreatedAt($this->faker->dateTimeBetween('-1 years', '-1 seconds'));
+            $comment->setCreatedAt($this->faker->dateTimeBetween('-1 months', '-1 seconds'));
             $comment->setArticle($this->getRandomReference(Article::class));
+            $comment->setIsDeleted($this->faker->boolean(20));
         });
 
         $manager->flush();
