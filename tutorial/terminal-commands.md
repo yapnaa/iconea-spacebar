@@ -32,3 +32,5 @@ But then, in just a couple of places in Symfony, the main ones being Twig extens
 ### Whenever possible, it's better to move code out of your controller. Usually we do this by creating a new service class and putting the logic there. But, if the logic is simple, it can sometimes live inside your entity class.
 
 + php bin/console doctrine:fixtures:load
+
+#### The Criteria system is better than manually filtering, but, remember! Do not prematurely optimize. Get your app to production, then check for issues. But if you have a big collection and need to return only a small number of results, you should use Criteria immediately.
