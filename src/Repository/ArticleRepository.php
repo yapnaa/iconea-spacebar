@@ -30,6 +30,8 @@ class ArticleRepository extends ServiceEntityRepository
 
         return $this->addIsPublishedQueryBuilder()
             ->orderBy('a.publishedAt', 'DESC')
+            ->leftJoin('a.tags', 't')
+            ->addSelect('t')
             ->getQuery()
             ->getResult()
         ;
