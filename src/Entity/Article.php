@@ -150,4 +150,10 @@ class Article
         $this->heartCount = $this->heartCount + 1;
         return $this;
     }
+
+    public function decrementHeartCount(): self
+    {
+        $this->heartCount = $this->heartCount - 1;
+        return $this;
+    }
 }

@@ -30,3 +30,5 @@
 But then, in just a couple of places in Symfony, the main ones being Twig extensions, event subscribers and security voters - a few topics we'll talk about in the future - you should consider using a service subscriber instead to avoid a performance hit.
 
 ### Whenever possible, it's better to move code out of your controller. Usually we do this by creating a new service class and putting the logic there. But, if the logic is simple, it can sometimes live inside your entity class.
+
++ php bin/console doctrine:fixtures:load
