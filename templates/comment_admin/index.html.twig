@@ -11,7 +11,7 @@
             <form>
                 <div class="input-group mb-3">
                     <input type="text"
-                           name="q"
+                           name="q" value="{{ app.request.query.get('q') }}"
                            class="form-control"
                            placeholder="Search..."
                     >
@@ -22,6 +22,7 @@
                         </button>
                     </div>
                 </div>
+                <p>Found {{comments|length}} results.</p>
             </form>
             <table class="table table-striped">
                 <thead>
@@ -48,6 +49,12 @@
                         </td>
                         <td>
                             {{ comment.createdAt|ago }}
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            No comments found
                         </td>
                     </tr>
                 {% endfor %}
