@@ -169,6 +169,10 @@ html {height:100%}
     width: 100%;
     background-color: #fff;
 }
+.show-article-container-border-green {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top: 5px solid #7c7;}
 
 .show-article-img {
     width: 250px;
