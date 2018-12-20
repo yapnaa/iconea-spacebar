@@ -3,6 +3,7 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Service\SlackClient;
 use App\Repository\ArticleRepository;
+use App\Repository\CommentRepository;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
@@ -53,14 +54,9 @@ class ArticleController extends AbstractController
             $slack->sendMessage('Kahn', 'Ah, Kirk, my old friend...');
 		}
 
-        $comments = [
-            'I ate a normal rock once. It did NOT taste like bacon!',
-            'Woohoo! I\'m going on an all-asteroid diet!',
-            'I like bacon too! Buy some from my site! bakinsomebacon.com',
-        ];
+        #$comments = $article->getComments();
         
 		return $this->render('article/show.html.twig', [
-			'comments' => $comments,
 			'article' => $article,
 		]);
 	}
