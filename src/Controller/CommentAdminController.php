@@ -27,6 +27,13 @@ class CommentAdminController extends AbstractController
             10/*limit per page*/
         );
 
+        $pagination->setCustomParameters(array(
+            'align' => 'center', # center|right (for template: twitter_bootstrap_v4_pagination)
+            #'size' => 'small', # small|large (for template: twitter_bootstrap_v4_pagination)
+            'style' => 'top',
+            'span_class' => 'whatever'
+        ));
+
         return $this->render('comment_admin/index.html.twig', [
             'pagination' => $pagination,
         ]);
