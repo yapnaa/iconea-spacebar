@@ -27,7 +27,8 @@ class ArticleFixture extends BaseFixture implements DependentFixtureInterface
     public function loadData(ObjectManager $manager)
     {
 
-        $this->createMany(Article::class, 10, function(Article $article, $count) use ($manager) {
+        $this->createMany(10, 'main_articles', function($i) use ($manager) {
+            $article = new Article();
             $article->setTitle($this->faker->randomElement(self::$articleTitles))
                 #->setSlug($this->faker->slug)
                 ->setContent(<<<EOF
@@ -49,12 +50,13 @@ EOF
                 #->setUpdatedAt(new \DateTime())
             ;
 
-            $tags = $this->getRandomReferences(Tag::class, $this->faker->numberBetween(0, 5));
+            $tags = $this->getRandomReferences('main_tags', $this->faker->numberBetween(0, 5));
             foreach ($tags as $tag) {
                 $article->addTag($tag);
             }
             #$article->addComment($comment1);
             #$article->addComment($comment2);
+            return $article;
         });
 
         $manager->flush();
