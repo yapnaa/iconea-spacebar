@@ -2,6 +2,7 @@
 namespace App\Security;
 
 use App\Repository\UserRepository;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
@@ -40,7 +41,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
             Security::LAST_USERNAME,
             $credentials['email']
         );
-        
+
         return $credentials;
     }
 
