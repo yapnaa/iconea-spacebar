@@ -31,10 +31,17 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     public function getCredentials(Request $request)
     {
-        return [
+        $credentials = [
             'email' => $request->request->get('email'),
             'password' => $request->request->get('password'),
         ];
+
+        $request->getSession()->set(
+            Security::LAST_USERNAME,
+            $credentials['email']
+        );
+        
+        return $credentials;
     }
 
     public function getUser($credentials, UserProviderInterface $userProvider)
@@ -55,6 +62,6 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     protected function getLoginUrl()
     {
-        // TODO: Implement getLoginUrl() method.
+        return $this->router->generate('app_login');
     }
 }
