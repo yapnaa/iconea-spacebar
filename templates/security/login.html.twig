@@ -19,6 +19,8 @@
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
+        <input type="hidden" name="_csrf_token"
+            value="{{ csrf_token('spacebar') }}" >
         <button class="btn btn-lg btn-primary btn-block" type="submit">
             Sign in
         </button>
