@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ArticleAdminController extends AbstractController
 {
 	/**
-     * @Route("/admin/article/new")
+     * @Route("/admin/article/new", name="admin_article_new")
      */
 	public function new(EntityManagerInterface $em)
 	{
