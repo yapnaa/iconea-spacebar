@@ -41,4 +41,4 @@ But then, in just a couple of places in Symfony, the main ones being Twig extens
 
  Remember, once you set up authentication, there are only two things you can do with security: get the user object or figure out whether or not the user should have access to something, like a role. That's what isGranted() does.
 
- 
+ However, if you pass a key to the second argument, and that route does not have a wildcard with that name, Symfony just adds it as a query parameter.
