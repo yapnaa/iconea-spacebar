@@ -17,16 +17,24 @@ class ArticleAdminController extends AbstractController
 	public function new(EntityManagerInterface $em)
 	{
 		die('todo');
+
+		return new Response(sprintf(
+            'Hiya! New Article id: #%d slug: %s',
+            $article->getId(),
+            $article->getSlug()
+        ));
 	}
 
     /**
      * @Route("/admin/article/{id}/edit")
+     * @IsGranted("MANAGE", subject="article")
      */
     public function edit(Article $article)
     {
-    	if (!$this->isGranted('MANAGE', $article)) {
+		/*if (!$this->isGranted('MANAGE', $article)) {
             throw $this->createAccessDeniedException('No access!');
-        }
+        }*/
+        #$this->denyAccessUnlessGranted('MANAGE', $article);
         dd($article);
     }
 }
