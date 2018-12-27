@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @IsGranted("ROLE_ADMIN")
+ * @IsGranted("ROLE_ADMIN_ARTICLE")
  */
 class ArticleAdminController extends AbstractController
 {
