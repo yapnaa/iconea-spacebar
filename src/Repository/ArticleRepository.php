@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Article;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -24,12 +25,16 @@ class ArticleRepository extends ServiceEntityRepository
     //  * @return Article[] Returns an array of Article objects
     //  */
     
-    public function findAllPublishedOrderedByNewest()
+    public function findAllPublishedOrderedByNewest(User $user = null)
     {
         #$qb = $this->createQueryBuilder('a');
+        $qb = $this->addIsPublishedQueryBuilder();
+        if($user) {
+            $qb = $qb->andWhere('a.author = :user')
+            ->setParameter('user', $user);
+        }
 
-        return $this->addIsPublishedQueryBuilder()
-            ->orderBy('a.publishedAt', 'DESC')
+        return $qb->orderBy('a.publishedAt', 'DESC')
             ->leftJoin('a.tags', 't')
             ->addSelect('t')
             ->getQuery()

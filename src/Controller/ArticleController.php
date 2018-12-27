@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 use App\Entity\Article;
+use App\Entity\User;
 use App\Service\SlackClient;
 use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
@@ -38,11 +39,12 @@ class ArticleController extends AbstractController
         return $this->render('article/homepage.html.twig', ["articles"=>$articles]);
 	}
 	/**
-	* @Route("/news", name="app_newshome")
+	* @Route("/author/{email}/posts", name="app_author")
 	*/
-	public function newspage()
+	public function byAuthor(User $user, ArticleRepository $repository)
 	{
-		return $this->render('article/homepage.html.twig');
+		$articles = $repository->findAllPublishedOrderedByNewest($user);
+		return $this->render('article/homepage.html.twig', ["articles"=>$articles]);
 	}
 
 	/**
