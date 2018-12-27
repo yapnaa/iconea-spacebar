@@ -38,4 +38,7 @@ But then, in just a couple of places in Symfony, the main ones being Twig extens
  As I always like to say, deploy first, then see where you have problems. Using a tool like Blackfire.io makes it very easy to find real issues.
 
  The moral of the story is this: if your page has a lot of queries because Doctrine is making extra queries across a relationship, just join over that relationship and use addSelect() to fetch all the data you need at once.
+
+ Remember, once you set up authentication, there are only two things you can do with security: get the user object or figure out whether or not the user should have access to something, like a role. That's what isGranted() does.
+
  
