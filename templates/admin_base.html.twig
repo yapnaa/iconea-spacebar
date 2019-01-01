@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+               <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="{{ path('admin_article_list') }}">Articles</a></li>
+                    <li class="nav-item"><a href="{{ path('comment_admin') }}">Comments</a></li>
+                </ul>
+                    {% block left_menu %}{% endblock %}
+                </div>
+            </nav>
+            <div class="col-sm-10">
+               <div class="{% block content_class %}show-article-container p-3{% endblock %}">
+                    {% block content_body %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
