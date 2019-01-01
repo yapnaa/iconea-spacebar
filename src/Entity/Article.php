@@ -250,4 +250,9 @@ class Article
 
         return $this;
     }
+
+    public function isPublished(): bool
+    {
+        return $this->publishedAt !== null;
+    }
 }
