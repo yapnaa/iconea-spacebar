@@ -15,6 +15,9 @@ class ArticleFormType extends AbstractType
         $builder
             ->add('title', TextType::class, ['help' => 'Choose something fishy!'])
             ->add('content')
+            ->add('publishedAt', null, [
+                'widget' => 'single_text'
+            ])
         ;
     }
 
