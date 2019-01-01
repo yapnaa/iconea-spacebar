@@ -74,4 +74,15 @@ class ArticleController extends AbstractController
         $em->flush();
 		return new JsonResponse(['hearts' => $article->getHeartCount()]);
 	}
+
+	/**
+	* @Route("/news/{slug}/unheart", name="article_toggle_unheart", methods={"POST"})
+	*/
+	public function articleUnHeart(Article $article, LoggerInterface $logger, EntityManagerInterface $em)
+	{
+        $logger->info('Article is being unhearted!');
+        $article->decrementHeartCount();
+        $em->flush();
+		return new JsonResponse(['hearts' => $article->getHeartCount()]);
+	}
 }

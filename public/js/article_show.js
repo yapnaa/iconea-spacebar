@@ -10,6 +10,12 @@ $(document).ready(function(){
 			url: $link.attr('href')
 		}).done(function(data){
 			$('.js-like-article-count').html(data.hearts);
+			var url = $link.attr('href');
+			if(url.includes('/heart')) {
+				$link.attr("href", url.replace("/heart","/unheart"));
+			} else {
+				$link.attr("href", url.replace("/unheart","/heart"));
+			}
 		});
 	});
 });

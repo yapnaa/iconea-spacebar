@@ -10,14 +10,30 @@
 
                 <!-- H1 Article -->
                 <a class="main-article-link" href="#">
-                    <div class="main-article mb-5 pb-3">
+                    <div class="main-article pb-3">
                         <img src="{{ asset('images/meteor-shower.jpg') }}" alt="meteor shower">
-                        <h1 class="text-center mt-2">Ursid Meteor Shower: <br>Healthier than a regular shower?</h1>
+                        <h1 class="text-center mt-2">{{ articles|first.title }}</h1>
                     </div>
                 </a>
+                <div class="row mb-5">
+                    <div class="col-md-12 text-center pt-1">
+                        {% for tag in articles|first.tags %}
+                        <button class="btn btn-sm btn-primary">{{ tag.name }}</button>
+                        {% endfor %}  
+                    </div>
+                    <div class="col-md-4">
+                        <h3><a href="{{ path('app_author', {'email': articles|first.author.email}) }}"><span class=""><img class="rounded-circle" src="{{ articles|first.author.getAvatarUrl(60) }}"> {{ articles|first.author }} </span></a></h3>
+                    </div>
+                    <div class="col-md-4">
+                      
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <h3>({{ articles|first.nonDeletedComments|length }} comments)</h3>
+                    </div>
+                </div>
 
                 <!-- Supporting Articles -->
-                {% for article in articles %}
+                {% for article in articles|slice(1) %}
                 <div class="article-container my-1">
                     <div class="article-container my-1">
                         <a href="{{ path('article_show', {slug: article.slug}) }}">
@@ -32,7 +48,7 @@
                                     </small>
                                 {% endfor %}
                                 <br>
-                                <a href="{{ path('app_author', {'email': article.author.email}) }}"><span class="align-left article-details"><img class="article-author-img rounded-circle" src="{{ article.author.getAvatarUrl(40) }}"> {{ article.author }} </span>
+                                <a href="{{ path('app_author', {'email': article.author.email}) }}"><span class="align-left article-details"><img class="article-author-img rounded-circle" src="{{ article.author.getAvatarUrl(40) }}"> {{ article.author }} </span></a>
                                 <span class="pl-5 article-details"> {{ article.publishedAt ? article.publishedAt|ago : 'unpublished' }}</span>
                             </div>
                         </a>
