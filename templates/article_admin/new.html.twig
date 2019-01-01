@@ -5,7 +5,9 @@
     {{ form_start(articleForm, {'attr': {'novalidate': 'novalidate'}}) }}
         {{ form_row(articleForm.publishedAt) }}
         {{ form_row(articleForm.author) }}
-        {{ form_row(articleForm.title) }}
+        {{ form_row(articleForm.title, {
+            label: 'Article title'
+        }) }}
         {{ form_row(articleForm.content) }}
         <button type="submit" class="btn btn-primary">Create!</button>
     {{ form_end(articleForm) }}
